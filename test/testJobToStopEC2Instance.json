@@ -1,0 +1,22 @@
+{
+    "name": "whatjob",
+    "description": "blabla",
+    "triggers": [
+        {
+            "type": "CronTrigger",
+            "param": {
+                "cron": "0 5 19 4 11 5"
+            }
+        }
+    ],
+    "conditions": [],
+    "actions": [
+        {
+            "type": "AWSEC2Actions",
+            "param": {
+                "action": "stopInstance",
+                "instanceId": "i-a7448bf8"
+            }
+        }
+    ]
+}

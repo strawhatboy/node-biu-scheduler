@@ -1,0 +1,26 @@
+{
+    "name": "whatjob",
+    "description": "blabla",
+    "triggers": [
+        {
+            "type": "CronTrigger",
+            "param": {
+                "cron": "* * * * *"
+            }
+        }
+    ],
+    "conditions": [],
+    "actions": [
+        {
+            "type": "ConsoleActions",
+            "param": {
+                "format": "%s is this, %s, %d",
+                "params": [
+                    "what?",
+                    "shit",
+                    20000
+                ]
+            }
+        }
+    ]
+}
