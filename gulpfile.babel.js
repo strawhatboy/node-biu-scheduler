@@ -31,6 +31,7 @@ gulp.task('copyDependencies', ['clean', 'installResources', 'install'], function
 gulp.task('install', ['clean', 'installResources'], function () {
     return gulp.src([dirs.src])
         .pipe(sourcemaps.init())
+        .pipe(babel({ presets: ['es2016'] }))
         .pipe(babel({ presets: ['es2015'] }))
         .pipe(sourcemaps.write('.', { sourceRoot: path.join(__dirname, 'src') }))
         .pipe(gulp.dest(dirs.dest));
