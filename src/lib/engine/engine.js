@@ -58,7 +58,7 @@ export class Engine {
 
         if (fs.statSync(location).isDirectory()) {
             var dir = fs.readdirSync(location);
-            for (var file in dir) {
+            for (let file in dir) {
                 var script = path.normalize(path.join(location, dir[file]));
                 if (fs.statSync(script).isDirectory() || script.endsWith('.js')) {
                     result = result.concat(require(script).Components);
@@ -81,7 +81,7 @@ export class Engine {
 
         if (job.actions) {
             var length = job.actions.length;
-            for (var i = 0; i < length; i++) {
+            for (let i = 0; i < length; i++) {
                 var actionType = _.find(this.actions, o => o.name === job.actions[i].type);
                 var action = actionType.create(job.actions[i].param, (obj, err, data) => {
                     if (err) {
@@ -99,7 +99,7 @@ export class Engine {
             _logger.info(`trigger triggered with parameter ${JSON.stringify(param)}`);
 
             // run all actions...
-            for (var i = 0; i < length; i++) {
+            for (let i = 0; i < length; i++) {
                 _this.jobs[jobId].actions[i].trigger();
             }
         };
@@ -107,7 +107,7 @@ export class Engine {
         if (job.triggers) {
 
             length = job.triggers.length;
-            for (var i = 0; i < length; i++) {
+            for (let i = 0; i < length; i++) {
                 var triggerType = _.find(this.triggers, o => o.name === job.triggers[i].type);
                 var trigger = triggerType.create(job.triggers[i].param, triggerEvent);
                 this.jobs[jobId].triggers.push(trigger);
